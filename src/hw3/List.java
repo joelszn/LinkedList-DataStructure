@@ -137,22 +137,19 @@ public class List {
 
 	public Node search(String n) {
 		Node temp = head;
-//		if (!isEmpty()) {
-//			return null;
-//		} else {
-			while (temp != null) {
-				if (n.equals(temp.getData())) {
-					System.out.println("FOUND IT");
-					return temp;
-				}
-				temp = temp.getNext();
+		// if (!isEmpty()) {
+		// return null;
+		// } else {
+		while (temp != null) {
+			if (n.equals(temp.getData())) {
+				System.out.println("FOUND IT");
+				return temp;
 			}
-			System.out.println("WAS NOT FOUND IT");
-
-			return null;
+			temp = temp.getNext();
 		}
-		
+		System.out.println("WAS NOT FOUND IT");
 
+		return null;
 	}
 
-
+}
