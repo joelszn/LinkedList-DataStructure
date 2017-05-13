@@ -16,7 +16,7 @@ public class Main {
 		newLL.printBackward();
 		System.out.println();
 		newLL.search("Fruit");
-		
+
 		newLL.search("JOEL");
 
 	}
