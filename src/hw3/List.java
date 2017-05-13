@@ -60,7 +60,7 @@ public class List {
 			// goes from the right assigning newNode to tail to head
 			head = tail = newNode;
 
-		} else  {
+		} else {
 			// only one thing in list
 			if (head == tail) {
 				// head.compareToIgnoreCase(newNode)
@@ -78,7 +78,7 @@ public class List {
 					tail.setPrev(head);
 
 				}
-				
+
 			} else {
 				// if it comes before the head
 				if (newNode.getData().compareToIgnoreCase(head.getData()) < 0) {
@@ -109,14 +109,13 @@ public class List {
 							// otherwise, set the while loop's node to it's next
 							// and keep looking
 						}
-							temp = temp.getNext();
-						}
+						temp = temp.getNext();
 					}
 				}
-
 			}
+
 		}
-	
+	}
 
 	// printForward method
 	public void printForward() {
@@ -126,14 +125,34 @@ public class List {
 			temp = temp.getNext();
 		}
 	}
-	
-	// printForward method
-		public void printBackward() {
-			Node temp = tail;
-			while (temp != null) {
-				System.out.println(temp);
-				temp = temp.getPrev();
-			}
-		}
 
-}
+	// printForward method
+	public void printBackward() {
+		Node temp = tail;
+		while (temp != null) {
+			System.out.println(temp);
+			temp = temp.getPrev();
+		}
+	}
+
+	public Node search(String n) {
+		Node temp = head;
+//		if (!isEmpty()) {
+//			return null;
+//		} else {
+			while (temp != null) {
+				if (n.equals(temp.getData())) {
+					System.out.println("FOUND IT");
+					return temp;
+				}
+				temp = temp.getNext();
+			}
+			System.out.println("WAS NOT FOUND IT");
+
+			return null;
+		}
+		
+
+	}
+
+
