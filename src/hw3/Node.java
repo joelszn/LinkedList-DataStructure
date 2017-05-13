@@ -6,6 +6,11 @@ public class Node {
 	private Node prev;
 	private Node next;
 
+	
+		//tostring is to help print
+		public String toString() {
+			return data;
+		}
 	// String
 	private String data;
 

@@ -54,18 +54,18 @@ public class List {
 	}
 
 	// Insert method
-	public void insert(String s) {
+	public void add(String s) {
 		Node newNode = new Node(s);
 		if (isEmpty()) {
 			// goes from the right assigning newNode to tail to head
 			head = tail = newNode;
 
-		} else {
+		} else  {
 			// only one thing in list
 			if (head == tail) {
 				// head.compareToIgnoreCase(newNode)
 
-				if (newNode.getData().compareToIgnoreCase(head.getData()) <= 0) {
+				if (newNode.getData().compareToIgnoreCase(head.getData()) < 0) {
 					// new head
 					head = newNode;
 					head.setNext(tail);
@@ -78,28 +78,62 @@ public class List {
 					tail.setPrev(head);
 
 				}
+				
 			} else {
 				// if it comes before the head
-				if(){
+				if (newNode.getData().compareToIgnoreCase(head.getData()) < 0) {
+					head.setPrev(newNode);
+					newNode.setNext(head);
+					head = newNode;
 					// if it comes after the tail
-				} else if(){
-					
-					//if it's here it comes somewhere in between head and tail
-				} else{
+				} else if (newNode.getData().compareToIgnoreCase(tail.getData()) > 0) {
+					tail.setNext(newNode);
+					newNode.setPrev(tail);
+					tail = newNode;
+
+					// if it's here it comes somewhere in between head and tail
+				} else {
+					Node temp = head;
 					// loop to traverse through list
-					while(){
-						// if it goes AFTER the while loop's node and BEFORE while loop's node.getNext, insert here
-						if(() && ()){
-							
-							// otherwise, set the while loop's node to it's next and keep looking
-						} else {
-							
+					while (temp != null) {
+
+						// if it goes AFTER the while loop's node and BEFORE
+						// while loop's node.getNext, insert here
+						if ((newNode.getData().compareToIgnoreCase(temp.getData()) > 0)
+								&& (newNode.getData().compareToIgnoreCase(temp.getData()) < 0)) {
+
+							newNode.setNext(temp.getNext());
+							newNode.setPrev(temp);
+							temp.getNext().setPrev(newNode);
+							temp.setNext(newNode);
+							// otherwise, set the while loop's node to it's next
+							// and keep looking
+						}
+							temp = temp.getNext();
 						}
 					}
 				}
-				
+
 			}
 		}
+	
+
+	// printForward method
+	public void printForward() {
+		Node temp = head;
+		while (temp != null) {
+			System.out.println(temp);
+			temp = temp.getNext();
+		}
 	}
+	
+	// printForward method
+		public void printBackward() {
+			Node temp = tail;
+			while (temp != null) {
+				System.out.println(temp);
+				temp = temp.getPrev();
+			}
+		}
 
 }
